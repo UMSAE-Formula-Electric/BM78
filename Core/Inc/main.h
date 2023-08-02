@@ -22,12 +22,13 @@
 #ifndef __MAIN_H
 #define __MAIN_H
 
+#include "stm32f4xx_hal.h"
+
 #ifdef __cplusplus
 extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "stm32f4xx_hal.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */

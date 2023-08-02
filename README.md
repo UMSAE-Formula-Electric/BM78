@@ -11,10 +11,13 @@
   - Added README file.
   - Added transmit-related functions.
   - To do:
-    - Figure out the pin configuration settings needed to enable bluetooth capabilities on the STM32F46VE board.
-    - Figure out the UART settings needed to create a UART instance on UART3 and share it to main.h.
-    - Figure out how long the "Command_Complete" event would be during reception. Update sendPacket function.
-    - Setup the HAL receive callback function.
-
+    - Figure out the pin configuration settings needed to enable bluetooth capabilities on the STM32F46VE board. (DONE)
+    - Figure out the UART settings needed to create a UART instance on UART3 and share it to main.h. (DONE)
+    - Figure out how long the "Command_Complete" event would be during reception. Update sendPacket function. (POSTPONED)
+    - Setup the HAL receive callback function. (POSTPONED)
+* Aug 1, 2023:
+  - To do:
+    - Test out the changes.
+    
 [1]: https://ww1.microchip.com/downloads/aemDocuments/documents/WSG/ProductDocuments/DataSheets/60001380E.pdf
 [2]: https://ww1.microchip.com/downloads/en/DeviceDoc/IS1678S_UARTCommandSet_UserGuide.pdf

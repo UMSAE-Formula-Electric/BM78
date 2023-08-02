@@ -7,6 +7,9 @@
 #ifndef SRC_BM78_H_
 #define SRC_BM78_H_
 
+#include <stdarg.h>
+#include <stdint.h>
+
 typedef enum {
 	// Common
     BM78_CMD_READ_LOCAL_INFORMATION = 0x01,
@@ -58,7 +61,7 @@ typedef enum {
  *
  * @retval None.
  */
-void BM78_sendPacket(uint8_t length, uint8_t *data);
+void BM78_sendPacket(UART_HandleTypeDef *huart, uint8_t length, uint8_t *data);
 
 /*
  * @brief Load the message buffer (data) with the sync value, command op code and length values.
@@ -72,7 +75,7 @@ void BM78_sendPacket(uint8_t length, uint8_t *data);
  * - CRC value must be calculated and added to the message before transmission.
  * - Refer to section 2.2 in https://ww1.microchip.com/downloads/en/DeviceDoc/IS1678S_UARTCommandSet_UserGuide.pdf.
  */
-inline void BM78_commandPrepareBuffer(BM78_CommandOpCode_t command, uint8_t length);
+void BM78_commandPrepareBuffer(BM78_CommandOpCode_t command, uint8_t length);
 
 /*
  * @brief Calculate the CRC for the given message.
@@ -81,7 +84,7 @@ inline void BM78_commandPrepareBuffer(BM78_CommandOpCode_t command, uint8_t leng
  *
  * @retval uint8_t: The calculated CRC for the given message.
  */
-inline uint8_t BM78_commandCalculateChecksum(uint8_t length);
+uint8_t BM78_commandCalculateChecksum(uint8_t length);
 
 /*
  * @brief Send the message to the BM78 module and reset the idle counter.
@@ -90,7 +93,7 @@ inline uint8_t BM78_commandCalculateChecksum(uint8_t length);
  *
  * @retval None.
  */
-inline void BM78_commandCommit(uint8_t length);
+void BM78_commandCommit(UART_HandleTypeDef *huart, uint8_t length);
 
 /*
  * @brief Send the message to the BM78 module and reset the idle counter.
@@ -104,6 +107,6 @@ inline void BM78_commandCommit(uint8_t length);
  * Note:
  * = This function would be the only one called from main.c for the time being.
  */
-void BM78_execute(BM78_CommandOpCode_t command, uint8_t length, ...);
+void BM78_execute(UART_HandleTypeDef *huart, BM78_CommandOpCode_t command, uint8_t length, ...);
 
 #endif /* SRC_BM78_H_ */

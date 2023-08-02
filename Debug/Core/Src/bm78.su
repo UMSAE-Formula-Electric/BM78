@@ -1,0 +1,6 @@
+../Core/Src/bm78.c:28:6:BM78_sendPacket	24	static
+../Core/Src/bm78.c:37:6:BM78_commandPrepareBuffer	16	static
+../Core/Src/bm78.c:45:9:BM78_commandCalculateChecksum	24	static
+../Core/Src/bm78.c:54:6:BM78_commandCommit	16	static
+../Core/Src/bm78.c:60:6:BM78_execute	24	static
+../Core/Src/bm78.c:74:6:HAL_UART_RxCpltCallback	16	static
